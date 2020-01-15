@@ -1,0 +1,11 @@
+<script>
+    const sleep = ms => new Promise((resolve) => {
+        setTimeout(resolve,ms,'hhh');
+    })
+    async function sleepyWork(){
+        console.log('I am going to sleep for 3 seconds');
+        await sleep(3000).then(msg=>console.log(msg));
+        console.log('I wake up after 3 seconds');
+    }
+    sleepyWork()
+</script>
