@@ -1,0 +1,53 @@
+<style>
+@keyframes donut-spin{
+    from{
+        transform: rotate(0)
+    }
+    to{
+        transform: rotate(360deg)
+    }
+}
+.donut{
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgb(0,0,0,0.1);
+    border-radius: 50%;
+    border-left-color:blueviolet;
+    /* linear表示匀速播放 */
+    animation: donut-spin 1.2s linear 1;
+}
+@keyframes bounce {
+    to{
+        transform: translateY(-40px);
+        opacity: 0.1;
+    }
+}
+.bounce-loader{
+    display: flex;
+    padding: 30px;
+
+}
+.bounce-loader>div{
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background: blue;
+    margin: 20px;
+    /* alternate表示来回反向播放 */
+    animation: bounce 0.6s alternate infinite;
+}
+.bounce-loader>div:nth-child(2){
+    animation-delay: 0.2s;
+}
+.bounce-loader>div:nth-child(3){
+    animation-delay: 0.4s;
+}
+</style>
+<!-- animation -->
+<!-- loading -->
+<div class="donut"></div>
+<div class="bounce-loader">
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
