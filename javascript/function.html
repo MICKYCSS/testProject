@@ -1,0 +1,34 @@
+<div>
+    普通处理：<input type="text" id="index"/>
+</div>
+<script>
+    const sleep = ms => new Promise((resolve) => {
+        setTimeout(resolve,ms,'hhh');
+    })
+    async function sleepyWork(){
+        console.log('I am going to sleep for 3 seconds');
+        await sleep(3000).then(msg=>console.log(msg));
+        console.log('I wake up after 3 seconds');
+    }
+    sleepyWork()
+    window.onload = () => {
+            function ajax (data) {
+                console.log(new Date().toLocaleTimeString() + ' - ' + data)
+            }
+            const throttle = (fn,ms) => {
+                let timeoutId
+                return (...args)=>{
+                    if(timeoutId)return;
+                    timeoutId = setTimeout(()=>{
+                        fn.apply(this,args)
+                        // clearTimeout(timeoutId)
+                        timeoutId = null
+                    },ms)
+                }
+        }
+        const throttleAjax = throttle(ajax,3000)
+            document.querySelector('#index').addEventListener('keyup', e => {
+                throttleAjax(e.target.value)
+            })
+        }
+</script>

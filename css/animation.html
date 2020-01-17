@@ -1,0 +1,130 @@
+<style lang="scss">
+    .container{
+        padding: 50px;
+    }
+    .loading{
+        display: flex;
+        align-items: center;
+    }
+    .loading>div{
+    }
+/* 加载转圈 */
+@keyframes donut-spin{
+    from{
+        transform: rotate(0)
+    }
+    to{
+        transform: rotate(360deg)
+    }
+}
+.donut{
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgb(0,0,0,0.1);
+    border-radius: 50%;
+    border-left-color:blueviolet;
+    /* linear表示匀速播放 */
+    animation: donut-spin 1.2s linear infinite;
+}
+/* 上下弹跳 */
+@keyframes bounce {
+    to{
+        transform: translateY(-40px);
+        opacity: 0.1;
+    }
+}
+.bounce-loader{
+    display: flex;
+    padding: 30px;
+
+}
+.bounce-loader>div{
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background: blue;
+    margin: 20px;
+    /* alternate表示来回反向播放 */
+    animation: bounce 0.6s alternate infinite;
+}
+.bounce-loader>div:nth-child(2){
+    animation-delay: 0.2s;
+}
+.bounce-loader>div:nth-child(3){
+    animation-delay: 0.4s;
+}
+/* height transition */
+.trigger:hover>.el{
+    max-height: var(--max-height);
+}
+.el{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s;
+}
+/* button animation*/
+@keyframes button-pulse {
+    to{
+        transform: translateY(50px);
+    }
+}
+.button-group{
+    margin-top: 20px;
+}
+.button{
+    width: 100px;
+    height: 60px;
+    background: brown;
+    color: #fff;
+    text-align: center;
+    line-height: 60px;
+    cursor: pointer;
+    border: 4px solid brown;
+    transition: background-color 1s;
+}
+.button:hover{
+    background: darkorange;
+}
+/*小球移动*/
+@keyframes ball-roll{
+    to{
+        transform: translateX(200px);
+    }
+}
+    .ball{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: lightblue;
+        /*both属性用于开始和结束的关键帧，动画停留位置*/
+        animation: ball-roll 1s linear alternate 3 both;
+    }
+</style>
+<div class="container">
+    <div class="loading">
+        <div>
+            <div class="donut"></div>
+        </div>
+        <div>
+            <div class="bounce-loader">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+    <div class="trigger">
+        hover me to see content!
+        <div class="el">content</div>
+    </div>
+    <div class="button-group">
+        <div class="button">Pulse</div>
+    </div>
+    <div class="ball"></div>
+</div>
+
+<script>
+   let el = document.querySelector('.el')
+   let height = el.scrollHeight
+   el.style.setProperty('--max-height',height+'px')
+</script>

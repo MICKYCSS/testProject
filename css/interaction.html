@@ -1,0 +1,59 @@
+<style>
+/* disable selection */
+.unselectable{
+    user-select:none;
+}
+/* hamburger button */
+.menu{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-around;
+    cursor: pointer;
+}
+.menu>.bar{
+    height: 5px;
+    border-radius: 5px;
+    background: #000;
+    transform-origin: left;
+    transition: all 0.5s;
+}
+.menu:hover .top{
+    transform: rotate(45deg)
+}
+.menu:hover .middle{
+    opacity: 0;
+}
+.menu:hover .bottom{
+    transform: rotate(-45deg)
+}
+/* popout menu */
+.reference{
+    height: 120px;
+    width: 120px;
+    background: red;
+    position: relative;
+}
+.reference>.popout{
+    position: absolute;
+    left: 100%;
+    padding: 15px;
+    visibility: hidden;
+}
+.reference:hover> .popout,.reference:focus> .popout,.reference:focus-within> .popout{
+    visibility: visible;
+}
+</style>
+<div class="unselectable">you can't select me!</div>
+
+<div class="menu">
+    <div class="bar top"></div>
+    <div class="bar middle"></div>
+    <div class="bar bottom"></div>
+</div>
+
+<div class="reference">
+    <div class="popout">popout content</div>
+</div>
+
