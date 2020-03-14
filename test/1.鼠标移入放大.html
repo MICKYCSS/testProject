@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>图片放大</title>
+  <style>
+    .box{
+      height: 100px;
+      width: 100px;
+      background: red;
+      margin:20px;
+    }
+    .box-item{
+      height: 80px;
+      width: 80px;
+      background: black;
+    }
+    .bigger{
+      height: 200px;
+      width:200px;
+      position: fixed;
+      right: 0;
+      top: 0;
+      overflow: hidden;
+    }
+    .bigger img{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+    }
+    body{
+      margin: 0;
+      padding: 0;
+    }
+    .show{
+      display: block;
+    }
+    .hide{
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- 原始图片区域 -->
+  <div class="box">
+    <img class="test" style="max-width: 100%;max-height:100%" src="https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1208538952,1443328523&fm=26&gp=0.jpg" alt="">
+    <div class="box-item"></div>
+  </div>
+<!-- 图片放大区域 -->
+  <div class="bigger">
+    <img class="big-img hide" src="https://dss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1208538952,1443328523&fm=26&gp=0.jpg" alt="">
+  </div>
+</body>
+<script>
+  let zoom={}
+  let bigPic =  document.querySelector('.big-img')
+  // 1.给鼠标移入区域监听鼠标移动事件
+  document.querySelector('.test').addEventListener('mousemove',function(e){
+    // 2.获取移动的位置点占据图片的比例
+    /*
+     * clientX：点击元素在浏览器中的X坐标和Y坐标
+     * target.offsetLeft:定位到父级元素的距离,为固定值
+    */
+    zoom.x = (-(e.clientX - e.target.offsetLeft)/e.target.offsetWidth * 100) + '%'
+    zoom.y = (-(e.clientY - e.target.offsetTop)/e.target.offsetHeight * 100) + '%'
+    bigPic.className = 'big-img show'
+    // 3.通过transform中的translate属性移动图片
+    bigPic.style = `transform:translate(${zoom.x},${zoom.y})`
+
+  })
+  document.querySelector('.box').addEventListener('mouseleave',function(e){
+    bigPic.className = 'big-img hide'
+    
+  })
+</script>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>子元素填满父元素剩余部分</title>
+  <style>
+    .container{
+      background: black;
+      height: 100%;    
+      /* 1.固定定位+flex布局 */
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        left: 0;
+        right: 0; 
+      /* 2.固定定位+calc   */
+        /* position: fixed;
+        left: 0;
+        right: 0;  */
+    }
+    .top{
+      height: 160px;
+      background: red;
+    }
+    .bottom{
+      background: blue;
+      /* 1.设置flex:auto */
+      flex:auto;
+      /* 2.calc，视口高度 - 固定高度 */
+      /* height: calc(100vh - 160px) */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top"></div>
+    <div class="bottom"></div>
+  </div>
+</body>
+</html>

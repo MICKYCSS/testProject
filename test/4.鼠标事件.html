@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>鼠标事件，添加快捷键</title>
+  <style>
+    .box{
+      width: 300px;
+      height: 300px;
+      background: chocolate;
+    }
+  </style>
+</head>
+<body>
+  <div id="box" class="box">
+
+  </div>
+</body>
+<script>
+  let dom = document.getElementById('box')
+  // 点击
+
+  dom.addEventListener('click',function(e){
+    console.log('click');//click事件需要按下松开后才会被触发，不支持中、右键
+  })
+  dom.addEventListener('mousedown',function(e){
+    console.log('mousedown');//mousedown事件只需要被按下就会被触发，不需要松开，支持左、中、右键
+  })
+  dom.addEventListener('mouseup',function(e){
+    console.log('mouseup');
+  })
+  dom.addEventListener('dbclick',function(e){
+    console.log('dbclick');//双击不起作用？？
+  })
+  // 移动
+  dom.addEventListener('mouseenter',function(e){
+    console.log('mouseenter');
+  })
+  // 拖拽
+
+  
+</script>
+</html>
