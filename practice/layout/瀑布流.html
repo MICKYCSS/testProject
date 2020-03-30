@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>test</title>
+  <style>
+    body{
+      margin: 0;
+    }
+    #box{
+      width: 90%;
+      margin: 20px auto;
+    }
+    #box ul{
+      list-style: none;
+      width: 24%;
+      float: left;
+      margin: 5px;
+    }
+    #box ul img{
+      width: 100%;
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <!-- <img src="../../assets/test1.jpg" alt=""> -->
+  <div id="box">
+    <ul></ul>
+    <ul></ul>
+    <ul></ul>
+  </div>
+</body>
+<script>
+  let ulArr = document.querySelectorAll('ul')
+  function createImg(count){
+    for(let i=0;i<count;i++){
+      let img = document.createElement('img')
+      img.src = `../../assets/test${i+1}.jpg`
+      let li = document.createElement('li')
+      li.appendChild(img)
+      let minHeightUl = ulArr[0]
+      for(let i=0;i<ulArr.length;i++){
+        if(minHeightUl.offsetHeight>ulArr[i].offsetHeight){
+          minHeightUl = ulArr[i]
+        }
+      }
+       minHeightUl.appendChild(li)
+    }
+  }
+  createImg(7)
+</script>
+</html>

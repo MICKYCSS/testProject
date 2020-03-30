@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>单列布局</title>
+  <style>
+    body{
+      margin: 0;
+    }
+    .header1,.content1,.footer1{
+      max-width: 1000px;
+      display: none;
+    }
+    .header1{
+      height: 100px;
+      max-width: 960px;
+      margin: 0 auto;
+      background: red;
+    }
+    .content1{
+      height: 400px;
+      max-width: 960px;
+      margin: 0 auto;
+      background: yellow;
+    }
+    .footer1{
+      height: 100px;
+      max-width: 960px;
+      margin: 0 auto;
+      background: blue;
+    }
+    .header2{
+      height: 100px;
+      max-width: 960px;
+      margin: 0 auto;
+      background: red;
+    }
+    .nav{
+      height: 50px;
+      max-width: 800px;
+      margin: 0 auto;
+      background: darkgray;
+    }
+    .content2{
+      height: calc(100vh - 200px);
+      max-width: 800px;
+      margin: 0 auto;
+      background: yellow;
+    }
+    .footer2{
+      height: 100px;
+      max-width: 960px;
+      margin: 0 auto;
+      background: blue;
+    }
+  </style>
+</head>
+<body>
+  <!-- 内容与头尾等宽单列布局 -->
+  <div>
+    <div class="header1"></div>
+    <div class="content1"></div>
+    <div class="footer1"></div>
+  </div>
+  <!-- 内容与头尾不等宽单列布局 -->
+  <div>  
+    <div class="header2">
+      <div class="nav"></div>
+    </div>
+    <div class="content2"></div>
+    <div class="footer2"></div>
+  </div>
+</body>
+</html>

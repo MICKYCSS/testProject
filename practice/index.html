@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>HTML DOM事件</title>
+  <style>
+    .scroll{
+      height: 100px;
+      background: #000;
+      color: #fff;
+      overflow:scroll;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div @click="onClick" @contextmenu="onContextMenu">{{message}} </div>
+    <input type="text" @keydown="onKeyDown" @keypress="onKeyPress" @keyup="onKeyUp">
+    <div class="scroll" @scroll="onScroll">
+      <ul v-for="(item,index) in list" :key="index">
+         <li>{{item}}</li>
+      </ul>
+    </div>
+    <img @load="onLoad"  @error="onError" :src="imgSrc" alt="">
+  </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+  var app = new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello Vue!',
+    list:[
+      'testestssssstestes',
+      'testestssssstestes',
+      'testestssssstestes',
+      'testestssssstestes',
+      'testestssssstestes',
+      'testestssssstestes'
+    ],
+    imgSrc:'http://5b0988e595225.cdn.sohucs.com/images/20200227/b5027ef927be4d54b957eb64fca8a721.jeg'
+  },
+  methods:{
+    onClick(e){
+      console.log(e.type,e);
+    },
+    onContextMenu(e){
+      console.log(e.type,e);
+    },
+    onKeyDown(e){
+      console.log(e.type,e);
+    },
+    onKeyPress(e){
+      console.log(e.type,e);
+      
+    },
+    onKeyUp(e){
+      console.log(e.type,e);
+    },
+    onScroll(e){
+      console.log(e.type,e);
+    },
+    onLoad(e){
+      console.log(e.type,e);
+    },
+    onError(e){
+      console.log(e.type,e);
+      this.imgSrc = 'https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=4077368554,695871241&fm=26&gp=0.jpg'
+      
+    },
+    onResize(e){
+      console.log(e.type,e);
+    }
+  }
+})
+</script>
+</html>

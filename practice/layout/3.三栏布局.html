@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>三栏布局</title>
+  <style>
+    body{
+      margin: 0;
+    }
+    .container{
+      /* 为左右腾出空间 */
+      padding: 0 220px;
+    }
+    .center{
+      float: left;
+      width: 100%;
+      height: 500px;
+      background: yellow;
+
+    }
+    .left{
+      width: 200px;
+      height: 400px;
+      float: left;
+      background: red;
+      margin-left: -100%;
+      position: relative;
+      left: 220px;
+    }
+    .right{
+      width: 200px;
+      height: 400px;
+      background: blue;
+      float: left;
+      position: relative;
+      margin-left:-200px; 
+      right: -220px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="center">圣杯布局</div>
+  </div>
+  <div class="left"></div>
+  <div class="right"></div>
+</body>
+</html>

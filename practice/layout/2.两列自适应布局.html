@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>两列自适应布局</title>
+  <style>
+    body,p{
+      margin: 0;
+    }
+    .parent{
+      background: black;
+      overflow: hidden;
+    }
+    .left{
+      background: red;
+      float: left;
+      margin-right: 20px;
+      height: 100px;
+    }
+    .right{
+      background: yellow;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <!-- 1.使用float和触发BFC -->
+  <div class="parent">
+    <div class="left">
+      <p>leftleftleftleftleftleftleftleft</p>
+    </div>
+    <div class="right">
+      <p>right</p>
+      <p>right</p>
+    </div>
+  </div>
+  <!-- 2.flex布局 -->
+  <!-- 父容器设置flex,子容器设置flex:auto -->
+  <!-- 3.grid布局 -->
+  <!-- 父容器设置grid-template-columns:auto 1fr -->
+</body>
+</html>
