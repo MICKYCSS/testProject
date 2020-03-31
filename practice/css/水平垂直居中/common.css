@@ -1,0 +1,13 @@
+/* 公共代码 */
+.wp{
+  height: 300px;
+  width: 300px;
+  background: coral;
+}
+.box{
+  background: green;
+}
+.box.size{
+  width: 100px;
+  height: 100px;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>css-table</title>
+  <link rel="stylesheet" href="./common.css">
+  <style>
+    /* 
+    缺点是
+    1.在PC端要考虑兼容性的问题
+    优点是
+    1.在移动端可以使用
+    */
+    .wp{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="wp">
+    <div class="box">77777</div>
+  </div>
+  
+</body>
+<!-- 总结
+PC端有兼容性要求：宽高固定使用 absolute + 负margin
+PC端有兼容性要求：宽高不固定使用css-table
+PC端无兼容性要求：使用flex布局
+移动端使用flex布局 -->
+</html>
